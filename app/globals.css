@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --grain: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+html, body {
+  background: #000000;
+  color: #FFFFFF;
+  font-family: 'IBM Plex Sans', 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+ * RTL / Arabic mode
+ * Force Plex Sans Arabic as primary, kill all decorative tracking
+ * (uppercase tracking is meaningless in Arabic), open up line-height,
+ * disable italic, isolate numerals/Latin tokens to LTR.
+ * ============================================================ */
+
+html[dir="rtl"],
+html[dir="rtl"] body {
+  font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.75 !important;
+}
+
+/* Strip every Tailwind tracking-* utility in RTL — uppercase tracking
+ * is a Latin convention and looks broken on Arabic glyphs. Latin elements
+ * that need tracking (e.g. the ETIENNE wordmark) carry it via inline style
+ * so this rule doesn't reach them. */
+html[dir="rtl"] [class*="tracking-"] {
+  letter-spacing: 0 !important;
+}
+
+/* Italic disabled — Arabic doesn't have italic forms */
+html[dir="rtl"] .italic,
+html[dir="rtl"] .font-display.italic,
+html[dir="rtl"] em,
+html[dir="rtl"] i {
+  font-style: normal !important;
+}
+
+/* Heading line-heights — open up tight EN leading for AR readability */
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .font-display {
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Body line-height — readable on mobile */
+html[dir="rtl"] p,
+html[dir="rtl"] label,
+html[dir="rtl"] li,
+html[dir="rtl"] span:not(.tabular-nums) {
+  line-height: 1.75 !important;
+}
+
+/* Pill / button labels — strip CSS-defined tracking and slightly bump size */
+html[dir="rtl"] .btn-primary,
+html[dir="rtl"] .btn-ghost {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 13px;
+}
+
+/* Numerals and tabular content stay LTR inside RTL UI so digits aren't
+ * reordered or mirrored by the bidi algorithm. */
+html[dir="rtl"] .tabular-nums {
+  direction: ltr;
+  unicode-bidi: isolate;
+  letter-spacing: 0;
+}
+
+/* Latin tokens (handles, brand names) keep their natural direction */
+html[dir="rtl"] [data-ltr] {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Hierarchy with a single typeface: weight + tracking does the work. */
+.font-display {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.font-display.italic { font-style: italic; }
+h1, h2, h3, h4 { font-weight: 500; letter-spacing: -0.01em; }
+strong { font-weight: 600; }
+
+body {
+  background-image: var(--grain);
+  background-size: 6px 6px;
+  min-height: 100dvh;
+}
+
+/* prevent iOS form auto-zoom */
+input, select, textarea, button {
+  font-size: 16px;
+}
+
+::selection {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/* Hairline divider — soft white tint */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #D4D4D4 50%, #8F8F8F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid #FFFFFF;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 16px 22px;
+  border-radius: 999px;
+  transition: transform .25s ease, background .25s ease, color .25s ease, opacity .25s ease;
+}
+.btn-primary:hover { transform: translateY(-1px); background: #F0F0F0; }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  transition: border-color .25s ease, background .25s ease;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.04); }
+
+/* Elevated surface on black */
+.tile {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+/* Reusable surface utility — inputs, secondary cards */
+.surface {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Subtle ring around featured items — a thin silver edge */
+.gold-ring {
+  position: relative;
+}
+.gold-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.12) 45%, transparent 75%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* answer button */
+.answer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  text-align: left;
+  width: 100%;
+  color: #FFFFFF;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.answer:hover { border-color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.05); }
+.answer .marker {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  display: grid; place-items: center;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+.answer.correct {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.answer.wrong {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.18);
+  opacity: 0.6;
+}
+.answer.correct .marker {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #000000;
+}
+.answer:disabled { cursor: default; }
+
+/* Timer ring */
+.timer-ring { transform: rotate(-90deg); }

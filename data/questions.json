@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "s1-01",
+    "stage": 1,
+    "prompt": "What does EDP stand for in perfumery?",
+    "options": [
+      "Eau de Parfum",
+      "Essence de Paris",
+      "Extract de Poudre",
+      "Eau de Pour"
+    ],
+    "answer": 0,
+    "trait": "refined",
+    "prompt_ar": "ماذا يعني الاختصار EDP في عالم العطور؟",
+    "options_ar": [
+      "Eau de Parfum",
+      "Essence de Paris",
+      "Extract de Poudre",
+      "Eau de Pour"
+    ]
+  },
+  {
+    "id": "s1-02",
+    "stage": 1,
+    "prompt": "Which note is typically the FIRST you smell from a perfume?",
+    "options": [
+      "Base note",
+      "Heart note",
+      "Top note",
+      "Drydown"
+    ],
+    "answer": 2,
+    "trait": "curious",
+    "prompt_ar": "أي نوتة عادةً ما تكون أول ما تشمّه من العطر؟",
+    "options_ar": [
+      "النوتات العليا",
+      "نوتات القلب",
+      "نوتات القاعدة",
+      "نوتات الجلد"
+    ]
+  },
+  {
+    "id": "s1-03",
+    "stage": 1,
+    "prompt": "Which family is associated with 'fresh, citrusy, marine' scents?",
+    "options": [
+      "Oriental",
+      "Aquatic / Citrus",
+      "Gourmand",
+      "Chypre"
+    ],
+    "answer": 1,
+    "trait": "fresh",
+    "prompt_ar": "أي عائلة عطرية ترتبط بالروائح المنعشة والحمضية والبحرية؟",
+    "options_ar": [
+      "شرقية",
+      "خشبية ثقيلة",
+      "أروماتية / فريش / مائية",
+      "غورماند"
+    ]
+  },
+  {
+    "id": "s1-04",
+    "stage": 1,
+    "prompt": "Which is the BEST place to apply perfume on the body?",
+    "options": [
+      "Hair only",
+      "Pulse points",
+      "Clothes only",
+      "Palms"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "ما أفضل مكان لرشّ العطر على الجسم؟",
+    "options_ar": [
+      "داخل الكوع، الرقبة، الرسغ",
+      "على الجوارب",
+      "أسفل الحذاء",
+      "على الشعر فقط"
+    ]
+  },
+  {
+    "id": "s1-05",
+    "stage": 1,
+    "prompt": "Why shouldn't you rub your wrists after spraying?",
+    "options": [
+      "It's bad luck",
+      "It crushes top notes",
+      "It's loud",
+      "It stains skin"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "لماذا لا يجب فرك المعصمين بعد رشّ العطر؟",
+    "options_ar": [
+      "يحطّم النوتات العليا الحساسة",
+      "يجعل العطر يدوم أكثر",
+      "يفعّل العطر",
+      "لا فرق إطلاقًا"
+    ]
+  },
+  {
+    "id": "s1-06",
+    "stage": 1,
+    "prompt": "Which note is most often described as 'warm and creamy'?",
+    "options": [
+      "Lemon",
+      "Vanilla",
+      "Mint",
+      "Sea salt"
+    ],
+    "answer": 1,
+    "trait": "warm",
+    "prompt_ar": "أي نوتة توصَف غالبًا بأنها 'دافئة وكريمية'؟",
+    "options_ar": [
+      "الليمون",
+      "الفانيليا",
+      "النعناع",
+      "ماء البحر"
+    ]
+  },
+  {
+    "id": "s1-07",
+    "stage": 1,
+    "prompt": "A perfume's 'sillage' refers to…",
+    "options": [
+      "Its bottle weight",
+      "The trail it leaves",
+      "Its alcohol level",
+      "Its country of origin"
+    ],
+    "answer": 1,
+    "trait": "sensual",
+    "prompt_ar": "مصطلح 'السيلاج' في العطور يشير إلى…",
+    "options_ar": [
+      "الأثر العطري الذي تتركه خلفك",
+      "نوتة العطر الأولى",
+      "زجاجة العطر",
+      "تركيز العطر"
+    ]
+  },
+  {
+    "id": "s1-08",
+    "stage": 1,
+    "prompt": "Which is generally the MOST concentrated?",
+    "options": [
+      "Eau de Cologne",
+      "Eau de Toilette",
+      "Eau de Parfum",
+      "Parfum / Extrait"
+    ],
+    "answer": 3,
+    "trait": "refined",
+    "prompt_ar": "أيّ مما يلي عادةً الأعلى تركيزًا؟",
+    "options_ar": [
+      "كولونيا",
+      "Eau de Toilette",
+      "Eau de Parfum",
+      "Parfum / Extrait"
+    ]
+  },
+  {
+    "id": "s1-09",
+    "stage": 1,
+    "prompt": "Which season usually pairs best with light, citrus scents?",
+    "options": [
+      "Summer",
+      "Deep winter",
+      "Late autumn",
+      "None"
+    ],
+    "answer": 0,
+    "trait": "fresh",
+    "prompt_ar": "أي فصل يناسب عادةً العطور الخفيفة الحمضية؟",
+    "options_ar": [
+      "الشتاء",
+      "الخريف",
+      "الصيف",
+      "بعد منتصف الليل فقط"
+    ]
+  },
+  {
+    "id": "s1-10",
+    "stage": 1,
+    "prompt": "What is a 'signature scent'?",
+    "options": [
+      "The newest one",
+      "The cheapest one",
+      "The one you wear as your identity",
+      "Any tester"
+    ],
+    "answer": 2,
+    "trait": "refined",
+    "prompt_ar": "ما المقصود بـ 'العطر المميّز' (signature scent)؟",
+    "options_ar": [
+      "العطر الذي تختاره لتعرّفك به الناس",
+      "أكثر العطور مبيعًا في المتجر",
+      "أغلى عطر تملكه",
+      "عطر يُلبس مرّة واحدة فقط"
+    ]
+  },
+  {
+    "id": "s1-11",
+    "stage": 1,
+    "prompt": "Which is a CLASSIC base note?",
+    "options": [
+      "Bergamot",
+      "Lemon",
+      "Sandalwood",
+      "Mint"
+    ],
+    "answer": 2,
+    "trait": "warm",
+    "prompt_ar": "أي مما يلي يُعدّ نوتة قاعدة كلاسيكية؟",
+    "options_ar": [
+      "خشب الصندل",
+      "ورق النعناع",
+      "قشر الليمون",
+      "ماء البحر"
+    ]
+  },
+  {
+    "id": "s1-12",
+    "stage": 1,
+    "prompt": "Which is typically a TOP note?",
+    "options": [
+      "Patchouli",
+      "Bergamot",
+      "Oud",
+      "Musk"
+    ],
+    "answer": 1,
+    "trait": "fresh",
+    "prompt_ar": "أي مما يلي يُعدّ عادةً نوتة عليا؟",
+    "options_ar": [
+      "البرغموت",
+      "خشب الأرز",
+      "العنبر",
+      "المسك"
+    ]
+  },
+  {
+    "id": "s1-13",
+    "stage": 1,
+    "prompt": "Why does perfume smell different on different people?",
+    "options": [
+      "Bottle quality",
+      "Skin chemistry",
+      "Lighting",
+      "Time of day only"
+    ],
+    "answer": 1,
+    "trait": "curious",
+    "prompt_ar": "لماذا يختلف العطر من شخص لآخر؟",
+    "options_ar": [
+      "كيمياء البشرة، النظام الغذائي، ودرجة حرارة الجسم تغيّر التطوّر",
+      "كل عطر مصمَّم لشخص واحد فقط",
+      "الأنف يخدع الدماغ",
+      "زجاجات العطور تختلف في كل مرة"
+    ]
+  },
+  {
+    "id": "s1-14",
+    "stage": 1,
+    "prompt": "Which storage condition damages perfume the FASTEST?",
+    "options": [
+      "Cool dark drawer",
+      "Direct sunlight on a window",
+      "Closed box",
+      "Dressing table away from light"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "أي شرط تخزين يُتلف العطر بأسرع شكل؟",
+    "options_ar": [
+      "خزانة بعيدة عن الضوء",
+      "نافذة مشمسة",
+      "دُرج مظلم وبارد",
+      "حقيبة مغلقة"
+    ]
+  },
+  {
+    "id": "s1-15",
+    "stage": 1,
+    "prompt": "Which note is typically described as 'fresh-cut grass / green'?",
+    "options": [
+      "Galbanum",
+      "Vanilla",
+      "Tonka",
+      "Amber"
+    ],
+    "answer": 0,
+    "trait": "fresh",
+    "prompt_ar": "أي نوتة توصَف بأنها 'عشب طازج / خضراء'؟",
+    "options_ar": [
+      "الجلبانوم",
+      "الفانيليا",
+      "العنبر",
+      "خشب الصندل"
+    ]
+  },
+  {
+    "id": "s1-16",
+    "stage": 1,
+    "prompt": "A 'gourmand' perfume smells most like…",
+    "options": [
+      "The ocean",
+      "A forest",
+      "Edible / dessert",
+      "Hospital corridors"
+    ],
+    "answer": 2,
+    "trait": "warm",
+    "prompt_ar": "العطر الـ'غورماند' يشبه في رائحته…",
+    "options_ar": [
+      "الحلوى — فانيليا، كراميل، شوكولاتة",
+      "ماء البحر",
+      "العشب المشذّب",
+      "المعدن"
+    ]
+  },
+  {
+    "id": "s1-17",
+    "stage": 1,
+    "prompt": "Which option is the cleanest, soft-laundered feeling?",
+    "options": [
+      "Smoky leather",
+      "Crisp linen + white musk",
+      "Heavy oud",
+      "Boozy tobacco"
+    ],
+    "answer": 1,
+    "trait": "clean",
+    "prompt_ar": "أي خيار يعطي إحساس 'الكتان النظيف الناعم'؟",
+    "options_ar": [
+      "زهرة القطن والمسك",
+      "العنبر الثقيل والعود",
+      "التبغ والجلد",
+      "ماء البحر فقط"
+    ]
+  },
+  {
+    "id": "s1-18",
+    "stage": 1,
+    "prompt": "Which BEST describes 'iris' as a note?",
+    "options": [
+      "Sweet sugary candy",
+      "Powdery, elegant, slightly cool",
+      "Burnt rubber",
+      "Tropical fruit"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "أيّ وصف يصف 'الإيريس' كنوتة؟",
+    "options_ar": [
+      "أنيق، بودر، عصري-كلاسيكي",
+      "حمضي ومنعش",
+      "حلو وغورماند",
+      "بحري"
+    ]
+  },
+  {
+    "id": "s1-19",
+    "stage": 1,
+    "prompt": "Which is a fair test of how a perfume will smell on YOU?",
+    "options": [
+      "Smelling the cap",
+      "Spraying paper",
+      "Wearing it on skin for an hour",
+      "Asking a friend"
+    ],
+    "answer": 2,
+    "trait": "curious",
+    "prompt_ar": "ما الطريقة الأفضل لاختبار كيف ستكون رائحة العطر عليك؟",
+    "options_ar": [
+      "ارتدِه على الجلد طوال اليوم وراقب التطوّر",
+      "اشتمّه من الزجاجة فقط",
+      "اشتمّه على ورقة الاختبار فقط",
+      "اسأل شخصًا آخر"
+    ]
+  },
+  {
+    "id": "s1-20",
+    "stage": 1,
+    "prompt": "Which best describes 'musk' as a note family?",
+    "options": [
+      "Sharp citrus",
+      "Warm, skin-like, soft",
+      "Salty marine",
+      "Burnt wood"
+    ],
+    "answer": 1,
+    "trait": "soft",
+    "prompt_ar": "أي وصف يصف 'المسك' كعائلة؟",
+    "options_ar": [
+      "ناعم، قريب من الجلد، يطيل النَفَس",
+      "حمضي حادّ",
+      "غذائي وحلو",
+      "معدني وحادّ"
+    ]
+  },
+  {
+    "id": "s2-01",
+    "stage": 2,
+    "prompt": "Which Etienne fragrance is the house's namesake signature?",
+    "options": [
+      "River",
+      "After Hours",
+      "Etienne",
+      "Linen"
+    ],
+    "answer": 2,
+    "trait": "refined",
+    "prompt_ar": "أي عطر من Etienne يحمل اسم الدار ويُعدّ توقيعها المميّز؟",
+    "options_ar": [
+      "River",
+      "After Hours",
+      "Etienne",
+      "Linen"
+    ]
+  },
+  {
+    "id": "s2-02",
+    "stage": 2,
+    "prompt": "Which Etienne perfume is built around dark rose, oud and smoked vanilla?",
+    "options": [
+      "Wild Cotton",
+      "After Hours",
+      "Tidal",
+      "River"
+    ],
+    "answer": 1,
+    "trait": "sensual",
+    "prompt_ar": "أي عطر من Etienne مبني حول الورد الداكن، العود والدخان؟",
+    "options_ar": [
+      "After Hours",
+      "River",
+      "Linen",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-03",
+    "stage": 2,
+    "prompt": "Which Etienne fragrance evokes a green-water freshness with fig leaf and mint?",
+    "options": [
+      "River",
+      "Linen",
+      "Etienne",
+      "After Hours"
+    ],
+    "answer": 0,
+    "trait": "fresh",
+    "prompt_ar": "أي عطر من Etienne يستحضر نضارة المياه الخضراء وورق التين؟",
+    "options_ar": [
+      "River",
+      "After Hours",
+      "Etienne",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-04",
+    "stage": 2,
+    "prompt": "Which Etienne fragrance is built around sea salt, neroli and driftwood?",
+    "options": [
+      "Tidal",
+      "Wild Cotton",
+      "Etienne",
+      "River"
+    ],
+    "answer": 0,
+    "trait": "free",
+    "prompt_ar": "أي عطر من Etienne مبني حول ملح البحر، النيرولي والكتان الدافئ تحت الشمس؟",
+    "options_ar": [
+      "Salted Linen",
+      "After Hours",
+      "Etienne",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-05",
+    "stage": 2,
+    "prompt": "Which Etienne perfume features cotton flower, iris butter and cashmere musk?",
+    "options": [
+      "Linen",
+      "Wild Cotton",
+      "Tidal",
+      "After Hours"
+    ],
+    "answer": 1,
+    "trait": "soft",
+    "prompt_ar": "أي عطر من Etienne يحوي زهرة القطن، زبدة الإيريس والمسك الأبيض؟",
+    "options_ar": [
+      "Linen",
+      "Salted Linen",
+      "After Hours",
+      "Etienne"
+    ]
+  },
+  {
+    "id": "s2-06",
+    "stage": 2,
+    "prompt": "Which Etienne fragrance is the 'pressed white shirt' — aldehydes, white florals, soft musk?",
+    "options": [
+      "Linen",
+      "Etienne",
+      "River",
+      "Wild Cotton"
+    ],
+    "answer": 0,
+    "trait": "clean",
+    "prompt_ar": "أي عطر من Etienne هو 'القميص الأبيض المكويّ' — ألدهيدات وأشجار خشبية ناعمة؟",
+    "options_ar": [
+      "Pressed",
+      "Linen",
+      "River",
+      "After Hours"
+    ]
+  },
+  {
+    "id": "s2-07",
+    "stage": 2,
+    "prompt": "Which is the best entry point for someone NEW to the house?",
+    "options": [
+      "After Hours only",
+      "The Discovery Kit",
+      "Two of the heaviest",
+      "None"
+    ],
+    "answer": 1,
+    "trait": "curious",
+    "prompt_ar": "ما أفضل بداية لمن هو جديد على الدار؟",
+    "options_ar": [
+      "Discovery Kit",
+      "After Hours",
+      "Etienne",
+      "Salted Linen"
+    ]
+  },
+  {
+    "id": "s2-08",
+    "stage": 2,
+    "prompt": "Etienne's house aesthetic is best described as…",
+    "options": [
+      "Loud and neon",
+      "Warm minimalism, modern luxury",
+      "Vintage kitsch",
+      "Sporty"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "كيف يُوصف الطابع الجمالي لدار Etienne؟",
+    "options_ar": [
+      "أناقة هادئة، مادّية، حسّية",
+      "صاخب وفلوريسنت",
+      "رياضي وميكانيكي",
+      "كرتوني ومرح"
+    ]
+  },
+  {
+    "id": "s2-09",
+    "stage": 2,
+    "prompt": "The Etienne color palette is built around…",
+    "options": [
+      "Neon green & purple",
+      "Cream, beige, soft gold, warm brown",
+      "Pastel pink only",
+      "Pure black & white only"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "لوحة ألوان Etienne تتمحور حول…",
+    "options_ar": [
+      "الأسود والأبيض، الفحمي والكريمي",
+      "النيون والوردي الفاقع",
+      "الأخضر الفلوري والبرتقالي",
+      "الأزرق الكهربائي فقط"
+    ]
+  },
+  {
+    "id": "s2-10",
+    "stage": 2,
+    "prompt": "Which Etienne perfume would pair best with a sun-warmed beach day?",
+    "options": [
+      "After Hours",
+      "Tidal",
+      "Etienne",
+      "Linen"
+    ],
+    "answer": 1,
+    "trait": "free",
+    "prompt_ar": "أي عطر من Etienne يلائم نزهة شاطئية تحت الشمس؟",
+    "options_ar": [
+      "Salted Linen",
+      "After Hours",
+      "Etienne",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-11",
+    "stage": 2,
+    "prompt": "Which Etienne perfume is most likely to be worn 'after hours' — the office is over?",
+    "options": [
+      "River",
+      "Wild Cotton",
+      "After Hours",
+      "Linen"
+    ],
+    "answer": 2,
+    "trait": "sensual",
+    "prompt_ar": "أي عطر من Etienne يُلبَس عادةً في 'ساعات ما بعد الليل'؟",
+    "options_ar": [
+      "After Hours",
+      "River",
+      "Linen",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-12",
+    "stage": 2,
+    "prompt": "Which Etienne fragrance leans into a tender, second-skin softness?",
+    "options": [
+      "Wild Cotton",
+      "Etienne",
+      "After Hours",
+      "Tidal"
+    ],
+    "answer": 0,
+    "trait": "soft",
+    "prompt_ar": "أي عطر من Etienne يميل إلى نعومة 'البشرة الثانية' الحانية؟",
+    "options_ar": [
+      "Linen",
+      "After Hours",
+      "River",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-13",
+    "stage": 2,
+    "prompt": "Which Etienne would suit a polished morning meeting?",
+    "options": [
+      "Linen",
+      "After Hours",
+      "Tidal",
+      "River"
+    ],
+    "answer": 0,
+    "trait": "clean",
+    "prompt_ar": "أي عطر من Etienne يناسب اجتماع صباح أنيق؟",
+    "options_ar": [
+      "Pressed",
+      "After Hours",
+      "Salted Linen",
+      "River"
+    ]
+  },
+  {
+    "id": "s2-14",
+    "stage": 2,
+    "prompt": "Which Etienne would suit a long candlelit dinner?",
+    "options": [
+      "Linen",
+      "After Hours",
+      "River",
+      "Tidal"
+    ],
+    "answer": 1,
+    "trait": "sensual",
+    "prompt_ar": "أي عطر من Etienne يناسب عشاءً طويلًا على ضوء الشموع؟",
+    "options_ar": [
+      "After Hours",
+      "Linen",
+      "Pressed",
+      "River"
+    ]
+  },
+  {
+    "id": "s2-15",
+    "stage": 2,
+    "prompt": "Which Etienne is most likely to be described as 'confident, refined, unmistakable'?",
+    "options": [
+      "Etienne",
+      "River",
+      "Tidal",
+      "Wild Cotton"
+    ],
+    "answer": 0,
+    "trait": "refined",
+    "prompt_ar": "أي عطر من Etienne يوصَف بأنه 'واثق، أنيق، خالد'؟",
+    "options_ar": [
+      "Etienne",
+      "River",
+      "Linen",
+      "Salted Linen"
+    ]
+  },
+  {
+    "id": "s2-16",
+    "stage": 2,
+    "prompt": "Which Etienne is the best gift for a curious newcomer to fine fragrance?",
+    "options": [
+      "After Hours",
+      "Discovery Kit",
+      "Wild Cotton",
+      "Linen"
+    ],
+    "answer": 1,
+    "trait": "curious",
+    "prompt_ar": "ما أفضل هدية لمن يكتشف بصمته العطرية حديثًا؟",
+    "options_ar": [
+      "Discovery Kit",
+      "Etienne",
+      "After Hours",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-17",
+    "stage": 2,
+    "prompt": "Which Etienne best matches: 'fresh, energetic, optimistic'?",
+    "options": [
+      "River",
+      "After Hours",
+      "Wild Cotton",
+      "Etienne"
+    ],
+    "answer": 0,
+    "trait": "fresh",
+    "prompt_ar": "أي عطر من Etienne يطابق 'منعش، نشيط، متفائل'؟",
+    "options_ar": [
+      "River",
+      "After Hours",
+      "Etienne",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s2-18",
+    "stage": 2,
+    "prompt": "Which Etienne carries 'salt, skin, sun' as its mood?",
+    "options": [
+      "Tidal",
+      "Linen",
+      "Etienne",
+      "After Hours"
+    ],
+    "answer": 0,
+    "trait": "free",
+    "prompt_ar": "أي عطر من Etienne مزاجه 'ملح، بشرة، شمس'؟",
+    "options_ar": [
+      "Salted Linen",
+      "Pressed",
+      "After Hours",
+      "Etienne"
+    ]
+  },
+  {
+    "id": "s2-19",
+    "stage": 2,
+    "prompt": "Which Etienne's tagline is 'Pressed, polished, present.'?",
+    "options": [
+      "Linen",
+      "Etienne",
+      "Wild Cotton",
+      "River"
+    ],
+    "answer": 0,
+    "trait": "clean",
+    "prompt_ar": "أي عطر من Etienne شعاره 'مكويّ، أنيق، حاضر'؟",
+    "options_ar": [
+      "Pressed",
+      "Linen",
+      "Etienne",
+      "River"
+    ]
+  },
+  {
+    "id": "s2-20",
+    "stage": 2,
+    "prompt": "Which Etienne's tagline is 'When the lights go low.'?",
+    "options": [
+      "After Hours",
+      "Tidal",
+      "Etienne",
+      "Wild Cotton"
+    ],
+    "answer": 0,
+    "trait": "sensual",
+    "prompt_ar": "أي عطر من Etienne شعاره 'حين تخفت الأضواء'؟",
+    "options_ar": [
+      "After Hours",
+      "Etienne",
+      "Salted Linen",
+      "River"
+    ]
+  },
+  {
+    "id": "s3-01",
+    "stage": 3,
+    "prompt": "Which note family typically anchors an oriental / amber composition?",
+    "options": [
+      "Aldehydes",
+      "Resins, vanilla, amber, balsams",
+      "Sea notes only",
+      "Citrus zest only"
+    ],
+    "answer": 1,
+    "trait": "warm",
+    "prompt_ar": "أي عائلة من النوتات تشكّل عادةً قاعدة العطر الشرقي / العنبري؟",
+    "options_ar": [
+      "الألدهيدات",
+      "الراتنجات، الفانيليا، العنبر، البلسم",
+      "النوتات البحرية فقط",
+      "قشر الحمضيات فقط"
+    ]
+  },
+  {
+    "id": "s3-02",
+    "stage": 3,
+    "prompt": "Which best describes 'chypre' as a structure?",
+    "options": [
+      "Citrus top + floral heart + oakmoss/patchouli base",
+      "Pure gourmand sugar",
+      "Marine + ozone",
+      "Single-note iris"
+    ],
+    "answer": 0,
+    "trait": "refined",
+    "prompt_ar": "ما أفضل وصف لتركيبة 'الشيبر' (Chypre)؟",
+    "options_ar": [
+      "حمضي + ورد/ياسمين + باتشولي + طحلب البلوط",
+      "فانيليا فقط",
+      "بحري نقيّ",
+      "مسك فقط"
+    ]
+  },
+  {
+    "id": "s3-03",
+    "stage": 3,
+    "prompt": "Cashmeran is best described as a…",
+    "options": [
+      "Citrus oil",
+      "Synthetic warm, musky, slightly woody molecule",
+      "Floral absolute",
+      "Pure animalic"
+    ],
+    "answer": 1,
+    "trait": "warm",
+    "prompt_ar": "الكاشميران (Cashmeran) يوصَف بأنه…",
+    "options_ar": [
+      "خشبي / حلو / مخملي / دافئ",
+      "حمضي حاد",
+      "بحري",
+      "غذائي حلو فقط"
+    ]
+  },
+  {
+    "id": "s3-04",
+    "stage": 3,
+    "prompt": "'Drydown' refers to…",
+    "options": [
+      "The first 30 seconds",
+      "The bottle drying",
+      "The final stage as base notes settle on skin",
+      "An allergic reaction"
+    ],
+    "answer": 2,
+    "trait": "refined",
+    "prompt_ar": "مصطلح 'Drydown' (الجفاف) يشير إلى…",
+    "options_ar": [
+      "المرحلة الأخيرة من العطر بعد تبخّر النوتات العليا والقلبية",
+      "تمرير زجاجة العطر تحت الماء",
+      "النوتة الأولى بعد الرشّ",
+      "خرافة من الإنترنت"
+    ]
+  },
+  {
+    "id": "s3-05",
+    "stage": 3,
+    "prompt": "Which best describes ambergris in perfumery today?",
+    "options": [
+      "Always real, always animal",
+      "Most often a clean, salty, radiant synthetic accord",
+      "Sweet candy floss",
+      "A citrus oil"
+    ],
+    "answer": 1,
+    "trait": "free",
+    "prompt_ar": "العنبر البحري (Ambergris) في العطور الحديثة يوصَف بأنه…",
+    "options_ar": [
+      "غالبًا تركيبة اصطناعية تحاكي ملمس العنبر",
+      "يأتي حصرًا من زهرة معينة",
+      "نفس مادة العنبر الراتنجي",
+      "اسم تجاري للفانيليا"
+    ]
+  },
+  {
+    "id": "s3-06",
+    "stage": 3,
+    "prompt": "Why are top notes most volatile?",
+    "options": [
+      "They're heaviest",
+      "They have the smallest, lightest molecules",
+      "They're alcohol",
+      "They're synthetic"
+    ],
+    "answer": 1,
+    "trait": "curious",
+    "prompt_ar": "لماذا تكون النوتات العليا الأكثر تطايرًا؟",
+    "options_ar": [
+      "لأنها تتكوّن من جزيئات صغيرة وخفيفة تتبخر بسرعة",
+      "لأنها أغلى ثمنًا",
+      "لأنها مخفّفة بالماء",
+      "لأنها تتكسّر بفعل الضوء فقط"
+    ]
+  },
+  {
+    "id": "s3-07",
+    "stage": 3,
+    "prompt": "Iso E Super is loved because it…",
+    "options": [
+      "Smells loudly sweet",
+      "Adds a transparent, velvety wood / skin halo",
+      "Replaces all citrus",
+      "Is a strong floral"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "Iso E Super يُحَب لأنه…",
+    "options_ar": [
+      "يضيف نعومة وشفافية وقربًا من الجلد",
+      "يجعل العطر حلوًا جدًا",
+      "يضفي لونًا أحمر للزجاجة",
+      "يعطّل النوتات العليا"
+    ]
+  },
+  {
+    "id": "s3-08",
+    "stage": 3,
+    "prompt": "Which best matches a 'skin scent' personality?",
+    "options": [
+      "Heavy projection, room-filling",
+      "Soft, intimate, second-skin musk and woods",
+      "Loud gourmand",
+      "Pure citrus blast"
+    ],
+    "answer": 1,
+    "trait": "soft",
+    "prompt_ar": "أي وصف يطابق شخصية 'عطر الجلد' (skin scent)؟",
+    "options_ar": [
+      "ناعم، حميمي، يكاد يكون عناقًا",
+      "صراخي وعالي الصوت",
+      "يعتمد كليًّا على الفانيليا",
+      "بحري حادّ"
+    ]
+  },
+  {
+    "id": "s3-09",
+    "stage": 3,
+    "prompt": "If someone loves smoky tea, leather and tobacco, they likely love…",
+    "options": [
+      "Bright aquatics",
+      "Rich, dark, sensual orientals",
+      "Pure white florals",
+      "Single-note mint"
+    ],
+    "answer": 1,
+    "trait": "sensual",
+    "prompt_ar": "إن كان المرء يحب الشاي المُدخَّن، الجلد والتبغ، فربما يميل إلى…",
+    "options_ar": [
+      "After Hours",
+      "River",
+      "Salted Linen",
+      "Linen"
+    ]
+  },
+  {
+    "id": "s3-10",
+    "stage": 3,
+    "prompt": "Saffron in modern perfumery often signals…",
+    "options": [
+      "Cool aquatic",
+      "Warm leathery glow alongside oud or rose",
+      "Pure citrus",
+      "Powdery iris alone"
+    ],
+    "answer": 1,
+    "trait": "warm",
+    "prompt_ar": "الزعفران في العطور الحديثة يشير عادةً إلى…",
+    "options_ar": [
+      "ترف دافئ، توابلي، جلدي قليلًا",
+      "ملح بحر",
+      "حلوى بسيطة",
+      "ورد طازج فقط"
+    ]
+  },
+  {
+    "id": "s3-11",
+    "stage": 3,
+    "prompt": "Which best describes 'galbanum'?",
+    "options": [
+      "Sweet vanilla resin",
+      "Sharp green, slightly bitter, very 'leaf'",
+      "Marine accord",
+      "Sweet candy"
+    ],
+    "answer": 1,
+    "trait": "fresh",
+    "prompt_ar": "أي وصف يطابق 'الجلبانوم' (Galbanum)؟",
+    "options_ar": [
+      "خضراء حادّة، تشبه السيقان المكسورة",
+      "حلوة كاراميلية",
+      "بحرية ملحية",
+      "خشبية ثقيلة"
+    ]
+  },
+  {
+    "id": "s3-12",
+    "stage": 3,
+    "prompt": "Vetiver is most often described as…",
+    "options": [
+      "Tropical fruit",
+      "Smoky, earthy, slightly green root",
+      "Pure floral",
+      "Pure citrus"
+    ],
+    "answer": 1,
+    "trait": "free",
+    "prompt_ar": "الفيتيفر (Vetiver) يوصَف غالبًا بأنه…",
+    "options_ar": [
+      "خشبي جذور، مدخّن قليلًا، أرضي وعمودي",
+      "حلو جدًا",
+      "حمضي خفيف",
+      "بحري نقيّ"
+    ]
+  },
+  {
+    "id": "s3-13",
+    "stage": 3,
+    "prompt": "Why does a perfume smell stronger in summer?",
+    "options": [
+      "It changes formula",
+      "Heat lifts molecules off skin faster",
+      "It expires",
+      "Your nose is stronger"
+    ],
+    "answer": 1,
+    "trait": "curious",
+    "prompt_ar": "لماذا تكون رائحة العطر أقوى في الصيف؟",
+    "options_ar": [
+      "الحرارة تسرّع تبخّر الجزيئات",
+      "البرد يُسكتها",
+      "الرطوبة تُلغي الرائحة",
+      "العطر يصبح أضعف فعلًا"
+    ]
+  },
+  {
+    "id": "s3-14",
+    "stage": 3,
+    "prompt": "An 'aldehydic' opening is famous from which classic?",
+    "options": [
+      "Chanel No. 5",
+      "A drugstore body spray",
+      "A pure oud",
+      "A linden cologne"
+    ],
+    "answer": 0,
+    "trait": "refined",
+    "prompt_ar": "الافتتاحية الـ'ألدهيدية' الشهيرة من أي عطر كلاسيكي؟",
+    "options_ar": [
+      "Chanel No. 5",
+      "Acqua di Gio",
+      "Sauvage",
+      "CK One"
+    ]
+  },
+  {
+    "id": "s3-15",
+    "stage": 3,
+    "prompt": "If your match is BOTH refined AND sensual, you likely belong to…",
+    "options": [
+      "River",
+      "Etienne",
+      "Linen",
+      "Wild Cotton"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "إن كانت بصمتك أنيقة وحسّية في آنٍ معًا، فأنت غالبًا تنتمي إلى…",
+    "options_ar": [
+      "Etienne",
+      "River",
+      "Salted Linen",
+      "Linen"
+    ]
+  },
+  {
+    "id": "s3-16",
+    "stage": 3,
+    "prompt": "If your match is BOTH free AND fresh, you likely belong to…",
+    "options": [
+      "Tidal",
+      "After Hours",
+      "Linen",
+      "Etienne"
+    ],
+    "answer": 0,
+    "trait": "free",
+    "prompt_ar": "إن كانت بصمتك حرّة ومنعشة معًا، فأنت تنتمي إلى…",
+    "options_ar": [
+      "River",
+      "After Hours",
+      "Etienne",
+      "Discovery Kit"
+    ]
+  },
+  {
+    "id": "s3-17",
+    "stage": 3,
+    "prompt": "Which discipline is closest to perfumery in structure?",
+    "options": [
+      "Civil engineering",
+      "Music composition (top/heart/base ≈ melody/harmony/bass)",
+      "Tax law",
+      "Pure mathematics"
+    ],
+    "answer": 1,
+    "trait": "curious",
+    "prompt_ar": "أي مهنة أقرب في بنيتها إلى صناعة العطر؟",
+    "options_ar": [
+      "تأليف الموسيقى",
+      "بناء البرمجيات",
+      "تصميم السيارات",
+      "العمارة الكلاسيكية فقط"
+    ]
+  },
+  {
+    "id": "s3-18",
+    "stage": 3,
+    "prompt": "Which is the most accurate way to layer two Etienne perfumes?",
+    "options": [
+      "Spray both at full strength on the same spot",
+      "One light + one warmer; let dry between layers",
+      "Mix in the bottle",
+      "Spray only on hair"
+    ],
+    "answer": 1,
+    "trait": "refined",
+    "prompt_ar": "ما الطريقة الأدق لتجميع عطرين من Etienne؟",
+    "options_ar": [
+      "ابدأ بطبقة قاعدة دافئة، ثم ارشّ عطرًا أخفّ فوقها",
+      "اخلطهما في كوب",
+      "ضع الأقوى أولًا دائمًا",
+      "ارش كميات متساوية في الوقت نفسه على ذات النقطة"
+    ]
+  },
+  {
+    "id": "s3-19",
+    "stage": 3,
+    "prompt": "If you love clean cotton sheets and quiet mornings, your scent twin is…",
+    "options": [
+      "Wild Cotton",
+      "After Hours",
+      "Etienne",
+      "Tidal"
+    ],
+    "answer": 0,
+    "trait": "soft",
+    "prompt_ar": "إن كنت تحب أغطية القطن النظيفة وصباحات الهدوء، فعطرك التوأم هو…",
+    "options_ar": [
+      "Linen",
+      "After Hours",
+      "Etienne",
+      "Pressed"
+    ]
+  },
+  {
+    "id": "s3-20",
+    "stage": 3,
+    "prompt": "If you love a slow drink at midnight, your scent twin is…",
+    "options": [
+      "After Hours",
+      "River",
+      "Linen",
+      "Tidal"
+    ],
+    "answer": 0,
+    "trait": "sensual",
+    "prompt_ar": "إن كنت تحب مشروبًا بطيئًا منتصف الليل، فعطرك التوأم هو…",
+    "options_ar": [
+      "After Hours",
+      "Linen",
+      "River",
+      "Salted Linen"
+    ]
+  }
+]
