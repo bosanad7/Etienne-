@@ -5,3 +5,4 @@ out
 .DS_Store
 data/leaderboard.json.bak
 .vercel
+.claude/
