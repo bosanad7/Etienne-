@@ -2,7 +2,7 @@ import type { Challenge, Stage } from "./types";
 
 /**
  * Single challenge mode for the Etienne IG campaign.
- * 10 questions, 15s each — competitive scoring.
+ * 10 questions, 20s each — competitive scoring.
  */
 export const CHALLENGES: Challenge[] = [
   {

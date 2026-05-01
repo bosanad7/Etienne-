@@ -39,11 +39,11 @@ function Landing() {
       <div className="absolute -z-10 inset-x-0 top-0 h-[60%] bg-gradient-to-b from-white/[0.04] via-transparent to-transparent" />
       <div className="absolute -z-10 left-1/2 top-[38%] -translate-x-1/2 w-[120%] aspect-square rounded-full bg-white/[0.03] blur-3xl" />
 
-      <header className="px-6 pt-8 flex items-center justify-between">
+      <header className="px-6 pt-8 flex items-start justify-between">
         <Logo />
         <Link
           href="/leaderboard"
-          className="text-[10px] tracking-[0.4em] uppercase text-ink/55 hover:text-ink transition-colors"
+          className="mt-3 text-[10px] tracking-[0.4em] uppercase text-ink/55 hover:text-ink transition-colors"
         >
           {t("leaderboard")}
         </Link>
