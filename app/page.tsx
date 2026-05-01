@@ -43,7 +43,7 @@ function Landing() {
         <Logo />
         <Link
           href="/leaderboard"
-          className="mt-3 text-[10px] tracking-[0.4em] uppercase text-ink/55 hover:text-ink transition-colors"
+          className="mt-7 text-[10px] tracking-[0.4em] uppercase text-ink/55 hover:text-ink transition-colors"
         >
           {t("leaderboard")}
         </Link>

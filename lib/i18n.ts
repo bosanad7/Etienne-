@@ -59,18 +59,18 @@ const dict = {
     signature_challenge: "Signature Challenge",
     target_pre: "Target · beat",
     target_at: "at",
-    enter_name_l1: "Enter your name",
+    enter_name_l1: "Enter your Instagram",
     enter_name_l2: "to compete",
     name_subtitle:
-      "Your score appears on the public leaderboard. Use a name or an Instagram handle.",
+      "Your handle appears on the public leaderboard. One play per Instagram — choose your moment.",
     format_q: "10 Questions",
     format_t: "20s Each",
     format_r: "1 Round",
     label_handle: "Instagram handle",
-    label_name: "Your name",
-    placeholder_input: "Your name or @handle",
+    label_name: "Instagram handle",
+    placeholder_input: "yourhandle",
     suffix_handle: "Handle",
-    suffix_name: "Name",
+    suffix_name: "Handle",
     btn_begin: "Begin",
     legal:
       "By entering, you agree to appear on the leaderboard. We never sell your data.",
@@ -79,10 +79,16 @@ const dict = {
     top3_count_many: "{n} on board",
 
     // identity errors
-    err_required: "Add a name or @handle to compete.",
-    err_too_long: "Keep it under 20 characters.",
-    err_no_handle: "Add the handle after the @.",
+    err_required: "Add your Instagram handle.",
+    err_too_long: "Keep it under 30 characters.",
+    err_no_handle: "Type your handle after the @.",
     err_invalid_chars: "Letters, numbers, dots and underscores only.",
+    // one-play gate
+    already_played_title: "You already played",
+    already_played_sub:
+      "{handle} has one signature on the board. View it on the leaderboard.",
+    already_played_score: "Your score",
+    view_my_score: "View on leaderboard",
 
     // game
     quit: "Quit",
@@ -217,18 +223,18 @@ const dict = {
     signature_challenge: "تحدي البصمة",
     target_pre: "الهدف · اهزم",
     target_at: "بـ",
-    enter_name_l1: "أدخل اسمك",
+    enter_name_l1: "أدخل حساب إنستغرامك",
     enter_name_l2: "للمنافسة",
     name_subtitle:
-      "نتيجتك ستظهر في لوحة الصدارة العامة. استخدم اسمك أو حساب إنستغرام.",
+      "حسابك سيظهر في لوحة الصدارة العامة. لعبة واحدة لكل حساب — اختر لحظتك.",
     format_q: "١٠ أسئلة",
     format_t: "٢٠ ثانية لكل سؤال",
     format_r: "جولة واحدة",
     label_handle: "حساب إنستغرام",
-    label_name: "اسمك",
-    placeholder_input: "اسمك أو @الحساب",
+    label_name: "حساب إنستغرام",
+    placeholder_input: "yourhandle",
     suffix_handle: "حساب",
-    suffix_name: "اسم",
+    suffix_name: "حساب",
     btn_begin: "ابدأ",
     legal:
       "بالمشاركة، توافق على ظهور اسمك في لوحة الصدارة. لن نبيع بياناتك أبدًا.",
@@ -236,10 +242,15 @@ const dict = {
     top3_count_one: "لاعب واحد",
     top3_count_many: "{n} على اللوحة",
 
-    err_required: "أضف اسمًا أو @حسابًا للمشاركة.",
-    err_too_long: "اجعله أقل من ٢٠ حرفًا.",
-    err_no_handle: "أضف الحساب بعد علامة @.",
+    err_required: "أضف حساب إنستغرام للمشاركة.",
+    err_too_long: "اجعله أقل من ٣٠ حرفًا.",
+    err_no_handle: "اكتب حسابك بعد علامة @.",
     err_invalid_chars: "حروف وأرقام ونقاط وشرطات سفلية فقط.",
+    already_played_title: "لقد لعبت من قبل",
+    already_played_sub:
+      "{handle} لديه بصمة مسجّلة على اللوحة. شاهدها في لوحة الصدارة.",
+    already_played_score: "نتيجتك",
+    view_my_score: "عرض في لوحة الصدارة",
 
     quit: "خروج",
     confirm_quit: "هل تترك هذه الجولة؟ سيُفقد تقدّمك.",

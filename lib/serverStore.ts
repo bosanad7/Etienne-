@@ -115,30 +115,54 @@ export async function getLeaderboard(): Promise<ScoreEntry[]> {
   );
 }
 
+/** Result shape for `appendScore`. `alreadyPlayed === true` means the
+ * caller's request was rejected because this player already has a row on
+ * the board; the returned `entry` is the existing one, not the rejected
+ * incoming one. */
+export interface AppendScoreResult {
+  entry: ScoreEntry;
+  alreadyPlayed: boolean;
+}
+
 /**
- * Save a score for a player. If the player already has a higher (or equal)
- * score on the board, the existing entry is kept and returned unchanged. If
- * the new score is strictly greater, it replaces the old one.
+ * Has this player key already played? Used by /api/leaderboard?check=…
+ * to gate the start screen before the user finishes a round.
+ */
+export async function hasPlayed(key: string): Promise<ScoreEntry | null> {
+  if (!key) return null;
+  if (HAS_KV) {
+    const cur = await kv.hget<ScoreEntry>(PLAYERS_KEY, key);
+    return cur ?? null;
+  }
+  const list = await readJsonPreferShadow<ScoreEntry[]>(
+    leaderboardPath,
+    tmpLeaderboardPath,
+    []
+  );
+  return list.find((e) => playerKey(e) === key) ?? null;
+}
+
+/**
+ * Save a score for a player. POLICY: one play per Instagram handle.
+ * If a row already exists for this player key, the incoming submission is
+ * REJECTED (alreadyPlayed = true) and the existing row is returned. The
+ * board is append-only from a player's perspective — first signature
+ * sticks.
  *
  * The board is capped at MAX_ENTRIES — when full, the lowest scores are
  * trimmed and their player rows removed from the companion hash.
  */
-export async function appendScore(entry: ScoreEntry): Promise<ScoreEntry> {
+export async function appendScore(entry: ScoreEntry): Promise<AppendScoreResult> {
   const key = playerKey(entry);
   if (!key) {
-    // Defensive: empty name AND empty handle. The API validator already
-    // rejects this, but if it ever slips through don't pollute the board.
-    return entry;
+    // Defensive: missing handle. The API validator already rejects this.
+    return { entry, alreadyPlayed: false };
   }
 
   if (HAS_KV) {
-    const existingScore = await kv.zscore(LB_KEY, key);
-    const existing =
-      typeof existingScore === "number" ? existingScore : null;
-
-    if (existing !== null && entry.score <= existing) {
-      const cur = await kv.hget<ScoreEntry>(PLAYERS_KEY, key);
-      return cur ?? entry;
+    const existing = await kv.hget<ScoreEntry>(PLAYERS_KEY, key);
+    if (existing) {
+      return { entry: existing, alreadyPlayed: true };
     }
 
     await kv.zadd(LB_KEY, { score: entry.score, member: key });
@@ -153,10 +177,10 @@ export async function appendScore(entry: ScoreEntry): Promise<ScoreEntry> {
         await kv.hdel(PLAYERS_KEY, ...drop);
       }
     }
-    return entry;
+    return { entry, alreadyPlayed: false };
   }
 
-  // FS fallback (local dev) — dedupe by playerKey, keep highest
+  // FS fallback (local dev) — one play per key, first wins.
   const list = await readJsonPreferShadow<ScoreEntry[]>(
     leaderboardPath,
     tmpLeaderboardPath,
@@ -164,17 +188,16 @@ export async function appendScore(entry: ScoreEntry): Promise<ScoreEntry> {
   );
   const idx = list.findIndex((e) => playerKey(e) === key);
   if (idx >= 0) {
-    if (entry.score > list[idx].score) list[idx] = entry;
-  } else {
-    list.push(entry);
+    return { entry: list[idx], alreadyPlayed: true };
   }
+  list.push(entry);
   list.sort((a, b) => b.score - a.score);
   await writeJsonResilient(
     leaderboardPath,
     tmpLeaderboardPath,
     list.slice(0, MAX_ENTRIES)
   );
-  return entry;
+  return { entry, alreadyPlayed: false };
 }
 
 /**

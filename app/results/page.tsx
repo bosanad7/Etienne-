@@ -85,9 +85,16 @@ export default function Results() {
             perfume: result.perfume.slug,
           }),
         });
-        const data = (await res.json()) as { ok?: boolean; entry?: ScoreEntry };
+        const data = (await res.json()) as {
+          ok?: boolean;
+          alreadyPlayed?: boolean;
+          entry?: ScoreEntry;
+        };
         if (cancelled) return;
-        if (!res.ok || !data.entry) {
+        // 409 alreadyPlayed: the existing row stands. Treat as success and
+        // show the existing entry's score/rank rather than an error.
+        const accepted = res.ok || res.status === 409;
+        if (!accepted || !data.entry) {
           setSubmit("error");
           return;
         }

@@ -1,8 +1,18 @@
 /**
- * Single-input identity: "Your name or @handle".
- * If the trimmed value starts with '@' we treat it as an Instagram handle;
- * otherwise it's a display name. Returns a normalized {name, handle, error}
- * triple so UI and storage stay consistent.
+ * Strict Instagram-handle identity.
+ *
+ * Players sign in with their IG @username. One handle = one player on the
+ * leaderboard. Free-text names are no longer accepted.
+ *
+ * Validation mirrors Instagram's own rules:
+ *   - 1..30 characters after the optional leading '@'
+ *   - letters, digits, periods, underscores only
+ *   - cannot start or end with a period
+ *   - cannot contain consecutive periods
+ *
+ * The optional leading '@' is tolerated and stripped silently. A canonical
+ * lowercase form is used as the dedup key; the display form keeps the
+ * '@' prefix.
  */
 
 export type IdentityError =
@@ -12,67 +22,72 @@ export type IdentityError =
   | "invalid_chars";
 
 export interface Identity {
+  /** Canonical key — lowercased, no '@'. Empty when invalid. */
+  canonical: string;
+  /** Display form — '@username', original casing preserved. Empty when invalid. */
+  handle: string;
+  /** Compatibility — same as `canonical`. Older code reads `name`. */
   name: string;
-  handle?: string;
   error?: string;
   errorCode?: IdentityError;
 }
 
-const MAX = 20;
+const MAX = 30; // Instagram's own ceiling
 const HANDLE_RE = /^[A-Za-z0-9._]+$/;
 
 export function parseIdentity(raw: string): Identity {
-  const trimmed = raw.trim();
-  if (!trimmed)
+  const trimmed = raw.trim().replace(/^@+/, "");
+
+  if (!trimmed) {
     return {
+      canonical: "",
+      handle: "",
       name: "",
-      error: "Add a name or @handle to compete.",
+      error: "Add your Instagram handle.",
       errorCode: "required",
     };
-  if (trimmed.length > MAX + 1)
-    return {
-      name: "",
-      error: `Keep it under ${MAX} characters.`,
-      errorCode: "too_long",
-    };
-
-  if (trimmed.startsWith("@")) {
-    const slug = trimmed.slice(1);
-    if (!slug)
-      return {
-        name: "",
-        error: "Add the handle after the @.",
-        errorCode: "no_handle",
-      };
-    if (slug.length > MAX)
-      return {
-        name: "",
-        error: `Keep it under ${MAX} characters.`,
-        errorCode: "too_long",
-      };
-    if (!HANDLE_RE.test(slug))
-      return {
-        name: "",
-        error: "Letters, numbers, dots and underscores only.",
-        errorCode: "invalid_chars",
-      };
-    return { name: slug, handle: `@${slug}` };
   }
-
   if (trimmed.length > MAX) {
     return {
+      canonical: "",
+      handle: "",
       name: "",
       error: `Keep it under ${MAX} characters.`,
       errorCode: "too_long",
     };
   }
-  return { name: trimmed };
+  if (!HANDLE_RE.test(trimmed)) {
+    return {
+      canonical: "",
+      handle: "",
+      name: "",
+      error: "Letters, numbers, dots and underscores only.",
+      errorCode: "invalid_chars",
+    };
+  }
+  if (trimmed.startsWith(".") || trimmed.endsWith(".") || trimmed.includes("..")) {
+    return {
+      canonical: "",
+      handle: "",
+      name: "",
+      error: "Dots can't start, end, or repeat.",
+      errorCode: "invalid_chars",
+    };
+  }
+
+  const canonical = trimmed.toLowerCase();
+  return {
+    canonical,
+    handle: `@${trimmed}`,
+    name: canonical,
+  };
 }
 
-/** What we display on the leaderboard for an entry. */
+/** What we display on the leaderboard for an entry. Always '@handle'. */
 export function displayLabel(entry: { name?: string; handle?: string }): string {
   if (entry.handle) {
     return entry.handle.startsWith("@") ? entry.handle : `@${entry.handle}`;
   }
-  return entry.name ?? "—";
+  // Legacy fallback for old rows that had only `name`.
+  return entry.name ? `@${entry.name.replace(/^@+/, "")}` : "—";
 }
