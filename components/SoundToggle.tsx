@@ -27,7 +27,7 @@ export default function SoundToggle() {
   }
 
   return (
-    <div className="fixed top-4 z-[60] end-20 select-none">
+    <div className="fixed top-[60px] z-[60] end-4 select-none">
       <button
         onClick={toggle}
         aria-pressed={on}

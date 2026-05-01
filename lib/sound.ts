@@ -77,16 +77,18 @@ export function playCorrect(): void {
   if (!ac) return;
 
   const now = ac.currentTime;
-  const dur = 0.22;
+  const dur = 0.26;
 
   const osc = ac.createOscillator();
   osc.type = "sine";
   osc.frequency.setValueAtTime(880, now);
-  osc.frequency.exponentialRampToValueAtTime(1320, now + 0.16);
+  osc.frequency.exponentialRampToValueAtTime(1320, now + 0.18);
 
   const gain = ac.createGain();
   gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(0.18, now + 0.012);
+  // Louder peak so it carries on phone speakers. Sine wave at this gain
+  // is clean (no clipping) but distinctly audible over ambient noise.
+  gain.gain.exponentialRampToValueAtTime(0.42, now + 0.012);
   gain.gain.exponentialRampToValueAtTime(0.0001, now + dur);
 
   osc.connect(gain).connect(ac.destination);
@@ -101,20 +103,24 @@ export function playWrong(): void {
   if (!ac) return;
 
   const now = ac.currentTime;
-  const dur = 0.18;
+  const dur = 0.22;
 
   const osc = ac.createOscillator();
   osc.type = "sine";
-  osc.frequency.setValueAtTime(220, now);
-  osc.frequency.exponentialRampToValueAtTime(160, now + dur);
+  osc.frequency.setValueAtTime(240, now);
+  osc.frequency.exponentialRampToValueAtTime(170, now + dur);
 
   const lp = ac.createBiquadFilter();
   lp.type = "lowpass";
-  lp.frequency.value = 800;
+  // Open the lowpass a bit so phone speakers (which roll off below ~300Hz)
+  // can actually carry the tone audibly.
+  lp.frequency.value = 1200;
 
   const gain = ac.createGain();
   gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(0.16, now + 0.008);
+  // Louder than correct — low frequencies need more gain to be perceived
+  // at the same loudness on small speakers.
+  gain.gain.exponentialRampToValueAtTime(0.55, now + 0.01);
   gain.gain.exponentialRampToValueAtTime(0.0001, now + dur);
 
   osc.connect(lp).connect(gain).connect(ac.destination);
