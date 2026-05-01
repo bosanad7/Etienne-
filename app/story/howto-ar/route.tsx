@@ -4,39 +4,30 @@ export const runtime = "edge";
 
 const SIZE = { width: 1080, height: 1920 } as const;
 
-// IBM Plex Sans Arabic (OFL) — matches the typography the live game uses
-// for Arabic on the web. Fetched from jsdelivr's @fontsource mirror.
 const FONT_REG =
   "https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans-arabic@5.0.13/files/ibm-plex-sans-arabic-arabic-400-normal.woff";
-const FONT_MED =
-  "https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans-arabic@5.0.13/files/ibm-plex-sans-arabic-arabic-500-normal.woff";
 const FONT_BOLD =
   "https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans-arabic@5.0.13/files/ibm-plex-sans-arabic-arabic-600-normal.woff";
 
 /**
- * Arabic IG Story explainer asset — 1080×1920 PNG, RTL.
+ * Arabic IG Story explainer — 1080×1920 PNG, RTL.
  *
- * Mirrors /story/howto in structure (brand → hero → 3 steps → CTA) but
- * runs in Arabic with direction:'rtl', a row-reverse step layout so the
- * number circle sits on the right, and a left-pointing arrow on the CTA.
+ * Mirrors /story/howto in structure (brand → hero → 3 steps → CTA) with
+ * Arabic copy, IBM Plex Sans Arabic bundled at request time, and a
+ * row-reverse step layout so number circles sit on the right.
  *
  * Top 240px and bottom 220px are kept clear of content so IG's own
  * Story chrome doesn't cover anything important.
  */
 export async function GET() {
-  const [reg, med, bold] = await Promise.all([
-    fetch(FONT_REG).then((r) => r.arrayBuffer()),
-    fetch(FONT_MED).then((r) => r.arrayBuffer()),
-    fetch(FONT_BOLD).then((r) => r.arrayBuffer()),
-  ]);
+  // Sequential, not Promise.all — gives a cleaner stack trace if one
+  // fetch blows up in the Edge runtime.
+  const reg = await fetch(FONT_REG).then((r) => r.arrayBuffer());
+  const bold = await fetch(FONT_BOLD).then((r) => r.arrayBuffer());
 
   return new ImageResponse(
     (
       <div
-        // direction:rtl flips text and inline content; layout positions
-        // that use centred absolute placement are direction-independent.
-        dir="rtl"
-        lang="ar"
         style={{
           width: "100%",
           height: "100%",
@@ -73,7 +64,7 @@ export async function GET() {
           }}
         />
 
-        {/* ETIENNE wordmark stays Latin */}
+        {/* ETIENNE wordmark */}
         <div
           style={{
             display: "flex",
@@ -116,16 +107,16 @@ export async function GET() {
             position: "absolute",
             top: 388,
             left: "50%",
-            transform: "translateX(-50%)",
             width: 80,
             height: 1,
+            marginLeft: -40,
             backgroundImage:
               "linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent)",
             zIndex: 1,
           }}
         />
 
-        {/* hero hook */}
+        {/* hero */}
         <div
           style={{
             display: "flex",
@@ -137,7 +128,6 @@ export async function GET() {
             fontSize: 100,
             color: "#FFFFFF",
             fontWeight: 600,
-            letterSpacing: "-0.01em",
             zIndex: 1,
           }}
         >
@@ -154,7 +144,6 @@ export async function GET() {
             fontSize: 130,
             color: "#FFFFFF",
             fontWeight: 600,
-            letterSpacing: "-0.02em",
             zIndex: 1,
           }}
         >
@@ -187,16 +176,15 @@ export async function GET() {
             position: "absolute",
             top: 850,
             left: "50%",
-            transform: "translateX(-50%)",
             width: 60,
             height: 1,
+            marginLeft: -30,
             backgroundImage:
               "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)",
             zIndex: 1,
           }}
         />
 
-        {/* HOW IT WORKS — 3 steps */}
         <Step
           top={920}
           n="٠١"
@@ -216,7 +204,7 @@ export async function GET() {
           sub="نطابق ذوقك مع أحد عطور ETIENNE الستة — ونضعك على لوحة الصدارة."
         />
 
-        {/* CTA — arrow points LEFT in RTL */}
+        {/* CTA — left-pointing arrow for RTL reading order */}
         <div
           style={{
             display: "flex",
@@ -235,9 +223,8 @@ export async function GET() {
           العب الآن ←
         </div>
 
-        {/* URL — Latin, LTR */}
+        {/* URL */}
         <div
-          dir="ltr"
           style={{
             display: "flex",
             position: "absolute",
@@ -260,7 +247,6 @@ export async function GET() {
       ...SIZE,
       fonts: [
         { name: "Plex Arabic", data: reg, weight: 400, style: "normal" },
-        { name: "Plex Arabic", data: med, weight: 500, style: "normal" },
         { name: "Plex Arabic", data: bold, weight: 600, style: "normal" },
       ],
       headers: {
@@ -290,10 +276,8 @@ function Step({
         top,
         left: 90,
         right: 90,
-        // row-reverse so the number circle sits on the RIGHT in RTL
         flexDirection: "row-reverse",
         alignItems: "flex-start",
-        gap: 36,
         zIndex: 1,
       }}
     >
@@ -310,6 +294,7 @@ function Step({
           fontSize: 28,
           fontWeight: 500,
           flexShrink: 0,
+          marginLeft: 36,
         }}
       >
         {n}
@@ -331,6 +316,8 @@ function Step({
             color: "#FFFFFF",
             lineHeight: 1.25,
             textAlign: "right",
+            width: "100%",
+            justifyContent: "flex-end",
           }}
         >
           {title}
@@ -343,8 +330,9 @@ function Step({
             fontWeight: 400,
             marginTop: 14,
             lineHeight: 1.55,
-            maxWidth: 760,
             textAlign: "right",
+            width: "100%",
+            justifyContent: "flex-end",
           }}
         >
           {sub}
