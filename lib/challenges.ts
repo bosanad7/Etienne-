@@ -31,7 +31,7 @@ export const ACTIVE_CHALLENGE = CHALLENGES[0];
 
 /** Seconds allowed per question. Single source of truth for the countdown
  * UI and the speed-bonus formula. */
-export const QUESTION_TIMER = 15;
+export const QUESTION_TIMER = 20;
 
 /** Base points for a correct answer. */
 export const CORRECT_POINTS = 100;

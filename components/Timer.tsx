@@ -70,7 +70,7 @@ export default function Timer({
         />
       </svg>
       <span
-        className={`absolute font-display text-[18px] ${
+        className={`absolute font-display text-[18px] tabular-nums ${
           danger ? "text-cocoa" : "text-ink"
         }`}
       >

@@ -2,8 +2,10 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Timer from "@/components/Timer";
 import ProgressBar from "@/components/ProgressBar";
+import SoundToggle from "@/components/SoundToggle";
 import { useLang } from "@/components/LangProvider";
 import { loadPlay, loadProfile, savePlay, saveResult } from "@/lib/storage";
 import {
@@ -15,6 +17,7 @@ import {
 import { summarizePlay } from "@/lib/matchScent";
 import { displayLabel } from "@/lib/identity";
 import { localizedQuestion } from "@/lib/questionLocale";
+import { playCorrect, playWrong, primeSound } from "@/lib/sound";
 import type { PlayState, ScoreEntry, Trait } from "@/lib/types";
 
 export default function GamePage() {
@@ -79,6 +82,9 @@ export default function GamePage() {
 
   function handlePick(i: number) {
     if (revealed || !state || !current) return;
+    // Prime audio context on the very first answer tap (iOS autoplay
+    // policy requires it). Idempotent — cheap on subsequent taps.
+    primeSound();
     const correct = i === current.answer;
     const tookMs = Date.now() - questionStart;
     const elapsedSec = tookMs / 1000;
@@ -91,6 +97,8 @@ export default function GamePage() {
 
     setChosen(i);
     setRevealed(true);
+    if (correct) playCorrect();
+    else playWrong();
 
     const traits = { ...state.traitScores };
     if (correct && current.trait) {
@@ -118,6 +126,7 @@ export default function GamePage() {
     const tookMs = Date.now() - questionStart;
     setChosen(null);
     setRevealed(true);
+    playWrong();
     const updated: PlayState = {
       ...state,
       answers: [
@@ -158,44 +167,72 @@ export default function GamePage() {
   const correctOptionText = localized.options[current.answer];
 
   return (
-    <section className="min-h-[100dvh] flex flex-col px-5 pt-6 pb-8">
-      <header className="flex items-center justify-between">
-        <button
-          onClick={() => {
-            if (confirm(t("confirm_quit"))) {
-              router.replace("/");
-            }
-          }}
-          className="text-[10px] tracking-[0.4em] uppercase text-ink/55"
-        >
-          {t("quit")}
-        </button>
-        <div className="text-center min-w-0 px-2">
-          <p className="text-[10px] tracking-[0.4em] uppercase text-ink/55">
-            {t("score")}
-          </p>
-          <p className="font-display text-2xl leading-none tabular-nums">
-            {state.score}
-          </p>
-          {chaseTarget && (
-            <p
-              className="mt-1.5 text-[9px] tracking-[0.2em] uppercase text-ink/45 truncate max-w-[160px] mx-auto"
-              title={`${t("top_chase_prefix")} · ${chaseTarget.label} · ${chaseTarget.score.toLocaleString()}`}
-            >
-              <span>{t("top_chase_prefix")}</span> ·{" "}
-              <span dir="ltr">{chaseTarget.label}</span> ·{" "}
-              <span className="tabular-nums text-ink/65" dir="ltr">
-                {chaseTarget.score.toLocaleString()}
-              </span>
+    <section
+      className="min-h-[100dvh] flex flex-col px-5 pt-6"
+      style={{
+        paddingBottom: "max(32px, calc(env(safe-area-inset-bottom) + 24px))",
+      }}
+    >
+      <SoundToggle />
+      <header className="flex flex-col items-stretch">
+        {/* Row 1 — Quit · centered logo+score · spacer for fixed top-right cluster */}
+        <div className="flex items-start justify-between gap-2">
+          <button
+            onClick={() => {
+              if (confirm(t("confirm_quit"))) {
+                router.replace("/");
+              }
+            }}
+            className="text-[10px] tracking-[0.4em] uppercase text-ink/55 mt-2"
+          >
+            {t("quit")}
+          </button>
+
+          <div className="text-center min-w-0 px-2 flex-1">
+            <Image
+              src="/brand/etienne-wordmark-white.png"
+              alt="ETIENNE"
+              width={424}
+              height={85}
+              priority
+              data-ltr
+              className="mx-auto h-[14px] w-auto opacity-85"
+            />
+            <p className="mt-3 text-[10px] tracking-[0.4em] uppercase text-ink/55">
+              {t("score")}
             </p>
-          )}
+            <p className="font-display text-2xl leading-none tabular-nums">
+              {state.score}
+            </p>
+            {chaseTarget && (
+              <p
+                className="mt-1.5 text-[9px] tracking-[0.2em] uppercase text-ink/45 truncate max-w-[160px] mx-auto"
+                title={`${t("top_chase_prefix")} · ${chaseTarget.label} · ${chaseTarget.score.toLocaleString()}`}
+              >
+                <span>{t("top_chase_prefix")}</span> ·{" "}
+                <span dir="ltr">{chaseTarget.label}</span> ·{" "}
+                <span className="tabular-nums text-ink/65" dir="ltr">
+                  {chaseTarget.score.toLocaleString()}
+                </span>
+              </p>
+            )}
+          </div>
+
+          {/* Spacer to balance the QUIT column — fixed top-right pills
+              (sound + lang toggles) float over this area. */}
+          <div aria-hidden="true" className="w-[44px] shrink-0" />
         </div>
-        <Timer
-          total={QUESTION_TIMER}
-          onExpire={handleExpire}
-          resetKey={`${state.index}-${revealed}`}
-          paused={revealed}
-        />
+
+        {/* Row 2 — timer centered below the score block, breathing room
+            from the EN/AR + sound toggles in the top-right. */}
+        <div className="mt-3 flex justify-center">
+          <Timer
+            total={QUESTION_TIMER}
+            onExpire={handleExpire}
+            resetKey={`${state.index}-${revealed}`}
+            paused={revealed}
+          />
+        </div>
       </header>
 
       <div className="mt-7">

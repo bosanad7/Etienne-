@@ -6,3 +6,4 @@ out
 data/leaderboard.json.bak
 .vercel
 .claude/
+tsconfig.tsbuildinfo

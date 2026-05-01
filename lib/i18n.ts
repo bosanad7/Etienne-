@@ -64,7 +64,7 @@ const dict = {
     name_subtitle:
       "Your score appears on the public leaderboard. Use a name or an Instagram handle.",
     format_q: "10 Questions",
-    format_t: "15s Each",
+    format_t: "20s Each",
     format_r: "1 Round",
     label_handle: "Instagram handle",
     label_name: "Your name",
@@ -93,6 +93,9 @@ const dict = {
     times_up: "Time's up.",
     confident: "A confident answer.",
     not_this_time_pre: "Not this time. The answer was",
+    sound_on: "Sound on",
+    sound_off: "Sound off",
+    aria_sound_toggle: "Toggle sound",
 
     // results
     your_signature: "Your Signature",
@@ -219,7 +222,7 @@ const dict = {
     name_subtitle:
       "نتيجتك ستظهر في لوحة الصدارة العامة. استخدم اسمك أو حساب إنستغرام.",
     format_q: "١٠ أسئلة",
-    format_t: "١٥ ثانية لكل سؤال",
+    format_t: "٢٠ ثانية لكل سؤال",
     format_r: "جولة واحدة",
     label_handle: "حساب إنستغرام",
     label_name: "اسمك",
@@ -246,6 +249,9 @@ const dict = {
     times_up: "انتهى الوقت.",
     confident: "إجابة واثقة.",
     not_this_time_pre: "ليس هذه المرة. الإجابة كانت",
+    sound_on: "الصوت مفعّل",
+    sound_off: "الصوت مكتوم",
+    aria_sound_toggle: "تبديل الصوت",
 
     your_signature: "بصمتك",
     accuracy_label: "دقة",
