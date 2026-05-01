@@ -2068,7 +2068,7 @@
       "Aura",
       "Linen",
       "Tidal",
-      "Essence"
+      "Essense"
     ],
     "answer": 3,
     "prompt_ar": "ما اسم منتج ETIENNE من فئة All Over Spray؟",
@@ -2076,7 +2076,7 @@
       "Aura",
       "Linen",
       "Tidal",
-      "Essence"
+      "Essense"
     ]
   },
   {
@@ -2123,7 +2123,7 @@
     "id": "pdf-38",
     "stage": 1,
     "trait": "clean",
-    "prompt": "Essence is what kind of product?",
+    "prompt": "Essense is what kind of product?",
     "options": [
       "Eau de Parfum",
       "Body lotion",
@@ -2131,7 +2131,7 @@
       "Cologne"
     ],
     "answer": 2,
-    "prompt_ar": "ما نوع منتج Essence؟",
+    "prompt_ar": "ما نوع منتج Essense؟",
     "options_ar": [
       "Eau de Parfum",
       "Body lotion",
@@ -2583,7 +2583,7 @@
     "id": "pdf-39",
     "stage": 2,
     "trait": "curious",
-    "prompt": "Which berry note is in Essence?",
+    "prompt": "Which berry note is in Essense?",
     "options": [
       "Blackberry",
       "Juniper berries",
@@ -2591,7 +2591,7 @@
       "Cranberry"
     ],
     "answer": 1,
-    "prompt_ar": "أي نوتة توت موجودة في Essence؟",
+    "prompt_ar": "أي نوتة توت موجودة في Essense؟",
     "options_ar": [
       "Blackberry",
       "Juniper berries",
@@ -2603,7 +2603,7 @@
     "id": "pdf-41",
     "stage": 2,
     "trait": "soft",
-    "prompt": "Which sweet note grounds Essence?",
+    "prompt": "Which sweet note grounds Essense?",
     "options": [
       "Caramel",
       "Honey",
@@ -2611,7 +2611,7 @@
       "Sugar"
     ],
     "answer": 2,
-    "prompt_ar": "أي نوتة حلوة تشكّل قاعدة Essence؟",
+    "prompt_ar": "أي نوتة حلوة تشكّل قاعدة Essense؟",
     "options_ar": [
       "Caramel",
       "Honey",
@@ -2623,7 +2623,7 @@
     "id": "pdf-42",
     "stage": 2,
     "trait": "warm",
-    "prompt": "Which woody note is in Essence?",
+    "prompt": "Which woody note is in Essense?",
     "options": [
       "Cedar",
       "Sandalwood",
@@ -2631,7 +2631,7 @@
       "Birch"
     ],
     "answer": 2,
-    "prompt_ar": "أي نوتة خشبية في Essence؟",
+    "prompt_ar": "أي نوتة خشبية في Essense؟",
     "options_ar": [
       "Cedar",
       "Sandalwood",
@@ -2668,7 +2668,7 @@
       "Tidal and Linen",
       "Linen and Wild Cotton",
       "After Hours and Etienne",
-      "Tidal and Essence"
+      "Tidal and Essense"
     ],
     "answer": 2,
     "prompt_ar": "أي عطرَين سعرهما 22 KWD؟",
@@ -2676,7 +2676,7 @@
       "Tidal و Linen",
       "Linen و Wild Cotton",
       "After Hours و Etienne",
-      "Tidal و Essence"
+      "Tidal و Essense"
     ]
   },
   {
