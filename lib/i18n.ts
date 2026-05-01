@@ -51,7 +51,7 @@ const dict = {
     challenge_beat_pre: "Beat",
     challenge_beat_post: "on Signature.",
     challenge_sub:
-      "Ten questions. Fifteen seconds each. Show {name} how it's done.",
+      "Ten questions. Twenty seconds each. Show {name} how it's done.",
     challenge_accept: "Accept Challenge",
     challenge_pick_own: "or pick your own challenge",
 
@@ -210,7 +210,7 @@ const dict = {
     challenge_beat_pre: "اهزم",
     challenge_beat_post: "في تحدي البصمة.",
     challenge_sub:
-      "عشرة أسئلة. خمس عشرة ثانية لكل سؤال. أرِ {name} كيف يكون التميّز.",
+      "عشرة أسئلة. عشرون ثانية لكل سؤال. أرِ {name} كيف يكون التميّز.",
     challenge_accept: "اقبل التحدي",
     challenge_pick_own: "أو اختر تحديك بنفسك",
 

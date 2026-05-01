@@ -9,7 +9,7 @@ export const CHALLENGES: Challenge[] = [
     id: "signature",
     name: "Signature Challenge",
     questions: 10,
-    description: "Ten questions. Fifteen seconds each. One signature.",
+    description: "Ten questions. Twenty seconds each. One signature.",
     badge: "10 Q",
   },
 ];
