@@ -25,6 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PHOTO = ROOT / "tools" / "etienne-discovery-photo.jpeg"
 FONTS = ROOT / "tools" / "fonts"
+WORDMARK = ROOT / "public" / "brand" / "etienne-wordmark-white@2x.png"
 OUT = ROOT / "public" / "share" / "campaign-hero-en.png"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
@@ -109,31 +110,47 @@ def draw_centered(d, text, y, font, fill, tracking_em: float = 0):
         x += widths[i] + extra
 
 
+def paste_wordmark(img: Image.Image, target_height: int, top: int) -> None:
+    """Centre the actual ETIENNE wordmark PNG (white-on-transparent),
+    scaled to the requested height."""
+    mark = Image.open(WORDMARK).convert("RGBA")
+    mw, mh = mark.size
+    scale = target_height / mh
+    new_w = int(mw * scale)
+    mark = mark.resize((new_w, target_height), Image.LANCZOS)
+    img.paste(mark, ((W - new_w) // 2, top), mark)
+
+
 def main() -> None:
     img, photo_h = make_canvas()
-    d = ImageDraw.Draw(img, "RGBA")
 
     # ---- divider above the type stack ---------------------------------
-    rule_y = photo_h + 70
+    rule_y = photo_h + 56
+    d = ImageDraw.Draw(img, "RGBA")
     d.line([(W // 2 - 22, rule_y), (W // 2 + 22, rule_y)],
            fill=(255, 255, 255, 200))
 
-    # ---- eyebrow: ETIENNE — THE GAME ---------------------------------
-    # Le Labo-style spaced caps, very small.
-    draw_centered(d, "ETIENNE — THE GAME",
-                  rule_y + 36, plex(500, 18), (255, 255, 255, 220),
-                  tracking_em=0.32)
+    # ---- ETIENNE logo (wordmark image) — gets its own moment ---------
+    # Replaces the letter-spaced 'ETIENNE' text. The stylised cut-through
+    # E's and decorative I make the brand mark instantly recognisable
+    # at IG-feed scale.
+    paste_wordmark(img, target_height=44, top=rule_y + 28)
+    d = ImageDraw.Draw(img, "RGBA")
+
+    # ---- eyebrow: THE GAME -------------------------------------------
+    draw_centered(d, "THE GAME",
+                  rule_y + 96, plex(500, 14), (255, 255, 255, 200),
+                  tracking_em=0.42)
 
     # ---- main lockup: PLAY · SCORE · WIN -----------------------------
-    # Editorial mid-weight, generous letter-spacing. NOT advertising-bold.
     draw_centered(d, "PLAY  ·  SCORE  ·  WIN",
-                  rule_y + 88, plex(500, 48), (255, 255, 255, 255),
+                  rule_y + 142, plex(500, 48), (255, 255, 255, 255),
                   tracking_em=0.18)
 
     # ---- italic body line --------------------------------------------
     draw_centered(d,
-                  "Top scores unlock exclusive fragrance sets.",
-                  rule_y + 168, plex(400, 22, italic=True),
+                  "Top scores win exclusive fragrance sets.",
+                  rule_y + 222, plex(400, 22, italic=True),
                   (255, 255, 255, 175))
 
     # ---- bottom rule + URL -------------------------------------------

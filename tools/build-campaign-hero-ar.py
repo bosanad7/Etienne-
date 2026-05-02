@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PHOTO = ROOT / "tools" / "etienne-discovery-photo.jpeg"
 FONTS = ROOT / "tools" / "fonts"
+WORDMARK = ROOT / "public" / "brand" / "etienne-wordmark-white@2x.png"
 OUT = ROOT / "public" / "share" / "campaign-hero-ar.png"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
@@ -111,25 +112,32 @@ def draw_centered_ar_with_latin(d, ar_text: str, latin_text: str, y: int,
     d.text((x + lw + sw, y - 4), ar_shaped, font=ar_font, fill=fill)
 
 
+def paste_wordmark(img: Image.Image, target_height: int, top: int) -> None:
+    """Centre the ETIENNE wordmark PNG (white-on-transparent),
+    scaled to the requested height."""
+    mark = Image.open(WORDMARK).convert("RGBA")
+    mw, mh = mark.size
+    scale = target_height / mh
+    new_w = int(mw * scale)
+    mark = mark.resize((new_w, target_height), Image.LANCZOS)
+    img.paste(mark, ((W - new_w) // 2, top), mark)
+
+
 def main() -> None:
     img, photo_h = make_canvas()
-    d = ImageDraw.Draw(img, "RGBA")
 
-    rule_y = photo_h + 70
+    rule_y = photo_h + 56
+    d = ImageDraw.Draw(img, "RGBA")
     d.line([(W // 2 - 22, rule_y), (W // 2 + 22, rule_y)],
            fill=(255, 255, 255, 200))
 
-    # Eyebrow — keep brand wordmark in Latin Plex, "اللعبة" in Plex AR
-    draw_centered_ar_with_latin(
-        d,
-        "اللعبة",
-        "ETIENNE",
-        rule_y + 36,
-        plex_ar(500, 22),
-        plex(500, 18),
-        (255, 255, 255, 220),
-        sep="  —  ",
-    )
+    # ETIENNE wordmark image — replaces the letter-spaced text version
+    paste_wordmark(img, target_height=44, top=rule_y + 28)
+    d = ImageDraw.Draw(img, "RGBA")
+
+    # Eyebrow — اللعبة (Plex Arabic)
+    draw_centered(d, ar("اللعبة"),
+                  rule_y + 92, plex_ar(500, 20), (255, 255, 255, 220))
 
     # Hero — العب · سجّل · اربح
     # Plex Sans Arabic is missing U+00B7 (middle dot), U+2014 (em-dash)
@@ -152,7 +160,7 @@ def main() -> None:
     # First word sits on the RIGHT (read first in RTL), so paint from
     # the right edge inward.
     cursor = (W + total_w) // 2
-    hero_y = rule_y + 75
+    hero_y = rule_y + 138
     for i, word in enumerate(hero_words):
         ww = word_widths[i]
         cursor -= ww
@@ -161,13 +169,12 @@ def main() -> None:
             cursor -= sep_w
             d.text((cursor, hero_y + 6), sep, font=sep_font, fill=(255, 255, 255, 220))
 
-    # Body line — drop the trailing period (caused a stray glyph) and
-    # let the Arabic sentence stand on its own, parallel to the EN
-    # version's editorial cadence.
+    # Body line — تربح (win) replaces the previous تفتح (unlock) for a
+    # punchier competitive verb that mirrors the EN 'win' more directly.
     draw_centered(
         d,
-        ar("أعلى النتائج تفتح طقم عطور حصري"),
-        rule_y + 188,
+        ar("أعلى النتائج تربح طقم عطور حصري"),
+        rule_y + 250,
         plex_ar(400, 26),
         (255, 255, 255, 180),
     )
