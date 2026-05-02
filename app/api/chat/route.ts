@@ -84,7 +84,27 @@ function fallbackReply(messages: InMsg[], context: unknown): string {
   return "I'm here for fragrance. Tell me a mood, a moment, or a person to dress in scent — and I'll point you to the right Etienne.";
 }
 
+/**
+ * Server-side gate matching the layout's UI gate. When the env flag is
+ * off (default at launch) we 503 the endpoint so a direct curl can't
+ * bill Anthropic — even though the floating UI is hidden, the endpoint
+ * URL would otherwise still be reachable.
+ *
+ *   Re-enable: set NEXT_PUBLIC_SCENT_GUIDE_ENABLED=true in Vercel and
+ *   redeploy. The same flag controls UI visibility too.
+ */
+function chatEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_SCENT_GUIDE_ENABLED === "true";
+}
+
 export async function POST(req: NextRequest) {
+  if (!chatEnabled()) {
+    return NextResponse.json(
+      { error: "Scent Guide is currently unavailable." },
+      { status: 503, headers: { "Cache-Control": "no-store" } }
+    );
+  }
+
   const body = await req.json().catch(() => ({}));
   const messages: InMsg[] = Array.isArray(body.messages) ? body.messages : [];
   const context = body.context;

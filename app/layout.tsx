@@ -4,6 +4,19 @@ import ScentGuide from "@/components/ScentGuide";
 import { LangProvider } from "@/components/LangProvider";
 import LangToggle from "@/components/LangToggle";
 
+/**
+ * Scent Guide chat is disabled at launch — keeps /api/chat from racking
+ * up Anthropic bills before the IG campaign has any usage signal. The
+ * component code, the route, and the i18n strings are all intact; flip
+ * the env var to re-enable in one step.
+ *
+ *   Re-enable:  Vercel → Project → Settings → Env Variables
+ *               NEXT_PUBLIC_SCENT_GUIDE_ENABLED = true
+ *               then trigger a redeploy.
+ */
+const SCENT_GUIDE_ENABLED =
+  process.env.NEXT_PUBLIC_SCENT_GUIDE_ENABLED === "true";
+
 const SITE_URL = "https://game.etienneperfumes.com";
 const TITLE = "Discover Your Signature Scent – Etienne Perfumes";
 const DESCRIPTION =
@@ -80,7 +93,7 @@ export default function RootLayout({
           <main className="mx-auto max-w-[480px] min-h-[100dvh] relative">
             {children}
           </main>
-          <ScentGuide />
+          {SCENT_GUIDE_ENABLED && <ScentGuide />}
         </LangProvider>
       </body>
     </html>
