@@ -41,7 +41,7 @@ export default function Admin() {
   const [leaderboard, setLeaderboard] = useState<ScoreEntry[]>([]);
   const [editing, setEditing] = useState<Editing>(empty());
   const [filter, setFilter] = useState<"all" | "1" | "2" | "3">("all");
-  const [discount, setDiscount] = useState("SIGNATURE10");
+  const [discount, setDiscount] = useState("");
 
   useEffect(() => {
     const t = sessionStorage.getItem("etienne.admin.token");

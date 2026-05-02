@@ -443,9 +443,13 @@ export default function Results() {
         </div>
       </Reveal>
 
-      <p className="text-center mt-10 text-[10px] tracking-[0.4em] uppercase text-ink/45">
-        {t("discount_code")}
-      </p>
+      {/* Discount-code line removed pending a real coupon. Re-enable
+          by reinstating the <p> below and pointing `discount_code` in
+          i18n.ts at the live promo string.
+          <p className="text-center mt-10 text-[10px] tracking-[0.4em] uppercase text-ink/45">
+            {t("discount_code")}
+          </p>
+       */}
 
       {/* Share card stays English — campaign asset */}
       <div className="fixed -left-[3000px] top-0 pointer-events-none" aria-hidden>
